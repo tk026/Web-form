@@ -19,10 +19,10 @@ $name= $address= $email= $gender= $age= $dob= $movie='';
 		$name = $_POST['name'];
 		$address = $_POST['address'];
 		$email = $_POST['email'];
-		$gender = !empty($_POST['gender']) ? $_POST['gender'];
 		$age = $_POST['age'];
 		$dob = $_POST['dob'];
 		$movie = $_POST['movie'];
+		$gender = !empty($_POST['gender']) ? $_POST['gender'];
 
 	}
 

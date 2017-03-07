@@ -1,23 +1,23 @@
 <?php
+// require 'index.php';
 
 //All your functions will go inside this file
 function dd($data) {
 	die(var_dump($data));
 }
 
-function e($value)
-{
-	return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+// function e($value)
+// {
+// 	return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 
-}
+// }
 
-function escape ($value)
-{
-	return e($value);
-}
+// function escape ($value)
+// {
+// 	return e($value);
+// }
 
 function validateName ($name)
-	if (empty($name)) {
 	  $errors['name'] = "Name is required";
 	
 	} else {
@@ -58,6 +58,13 @@ function validateDOB ($dob)
 	if (empty($dob)){ 
 		$errors ['dob'] = "Date of Birth is required";
 	}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 
 
  

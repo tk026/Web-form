@@ -2,9 +2,9 @@
 
 require 'includes/functions.php';
 
-$name= $address= $email= $gender= $age= $dob= $movie='';
+$name = $address = $email = $gender = $age = $dob = $movie ='';
 
-	$errors =[];
+	$errors =[''];
 
 	//The request is using the POST method
 	//This is where you will call your validation code
@@ -22,7 +22,7 @@ $name= $address= $email= $gender= $age= $dob= $movie='';
 		$age = $_POST['age'];
 		$dob = $_POST['dob'];
 		$movie = $_POST['movie'];
-		$gender = !empty($_POST['gender']) ? $_POST['gender'];
+		// $gender = !empty($_POST['gender']) ? $_POST['gender']; 
 
 	}
 

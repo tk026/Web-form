@@ -18,6 +18,7 @@ function dd($data) {
 // }
 
 function validateName ($name)
+	if (empty($_POST["name"])) {
 	  $errors['name'] = "Name is required";
 	
 	} else {

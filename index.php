@@ -1,45 +1,41 @@
 <?php
-
 require 'includes/functions.php';
 
-$name = $address = $email = $gender = $age = $dob = $movie ='';
 
-	$errors =[''];
-
-	//The request is using the POST method
-	//This is where you will call your validation code
+$nameErr = $addressErr = $emailErr = $genderErr = $ageErr = $dobErr = $movieErr = "";
+$name = $address = $email = $gender = $age = $dob = $movie ="";
 
 	
-	// dd($_POST);
 
 	
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	 {
+	 	
 		$name = $_POST['name'];
 		$address = $_POST['address'];
 		$email = $_POST['email'];
 		$age = $_POST['age'];
 		$dob = $_POST['dob'];
-		$movie = $_POST['movie'];
-		// $gender = !empty($_POST['gender']) ? $_POST['gender']; 
-
-	}
-
-	$errors['name']= validateName($name);
-	$errors['address']= validateAddress($address);
-	$errors['email']= validateEmail($email);
-	$errors['gender']= validateGender($gender);
-	$errors['age']= validateAge($age);
-	$errors['dob']= validateDOB($dob);
-	$errors['movie']= validateMovie($movie);
+		$movie = (isset($_POST['movie']) ? $_POST['movie'] : null);
+		$gender = (isset($_POST['gender']) ? $_POST['gender'] : null);
 
 
+	$nameErr = validateName('name');
+	$addressErr= validateAddress('address');
+	$emailErr= validateEmail('email');
+	$genderErr= validateGender('gender');
+	$ageErr= validateAge('age');
+	$dobErr= validateDOB('dob');
+	$movieErr= validateMovie('movie');
+
+	
 
 
+}
 
 require 'partials/header.php';
-require ' partials/form.php';
-require ' partials/footer.php';
-
+require 'partials/form.php';
+require 'partials/footer.php';
 ?>
+

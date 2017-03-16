@@ -14,7 +14,6 @@ function e($value)
 
 }
 
-
 function validateName ($name){
  if (empty($_POST["name"])) {
     $nameErr = "Name is required";
@@ -25,18 +24,8 @@ function validateName ($name){
       $nameErr = "Only letters and white space allowed"; 
     }
   }
-	
-function validateAddress ($address) {
-	if (empty($_POST["address"])) {
-	  $addressErr = "Address is required";
-	}
-	else {
-     $address = test_input($_POST["address"]);
-   }
-}
-	
 
-function validateEmail ($email){
+  function validateEmail ($email){
 	 if (empty($email)) {
 	   $emailErr = "Email is required";
 	 }
@@ -51,6 +40,17 @@ function validateEmail ($email){
     }
 
 	}
+	
+function validateAddress ($address) {
+	if (empty($_POST["address"])) {
+	  $addressErr = "Address is required";
+	}
+	else {
+     $address = test_input($_POST["address"]);
+   }
+}
+	
+
 
 function validateGender ($gender){
  if (empty($_POST["gender"])) {
@@ -66,7 +66,8 @@ function validateAge ($age){
  	if (empty($_POST["age"])) { 
  	 $ageErr = "Age is required";
 	}
-	else{
+	else
+	 {
 		$age = test_input($_POST["age"]);
 	}
 }

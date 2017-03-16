@@ -1,83 +1,149 @@
-function validate(){
+	function validate(){
 
-	var email  =  validateEmail;
-	var name = validateName;
-	var address = validateAddress;
-	var gender = validateGender;
-	var dob = validateDOB;
-	var age = validateAge;
-	var movie = validateMovie;
+		alert('here');
+		var name = validateName();
 
-	if ( validateName() && validateEmail() && validateAddress() && validateGender () 
-		&& validateDOB () && validateAge() && validateMovie ())
+		var email  =  validateEmail();
+		var address = validateAddress();
+		var gender = validateGender();
+		var age = validateAge();
+		var dob = validateDOB();
+		var movie = validateMovie();
+
+		if (name && email && address && gender && age && dob && movie)
 		{
-		
-		document.getElementById('form').style.display="block";
+			// If all inputs are correct then this code will run
+			return true;
+
+		}
+
+
 		return false;
+	}
 
+	function validateName(){
+
+		fullName = document.getElementById('name').value;
+
+		
+		if (fullName == '') {
+			document.getElementById('nameError').innerHTML = "please enter a full Name!";  
+
+	    	return false;
+
+		}
+		else
+		{ 
+			document.getElementById('nameError').innerHTML = ""; 
+		    return true;
+		}
+	}
+
+	function validateEmail(){
+
+		mailAddress = document.getElementById('email').value;
+		pos1 = mailAddress.indexOf("@");
+		pos2 = mailAddress.indexOf(".");
+
+		if (pos1 >= 0 && pos2 >= 0) {
+	   
+		   // document.getElementById('emailError').innerHTML = "";
+		   return true;
+		}
+		else
+		{
+		   
+		    document.getElementById('emailError').innerHTML = " please enter a valid email address!";  
+		    return false;
+		}
 	}
 
 
-	return false;
-}
+	function validateAddress(){
 
-function validateName(){
-	fullName = document.getElementById('name').value;
-	pos1 = fullName.indexOf("$name");
+		fullAddress = document.getElementById('address').value;
+
+		if(fullAddress==''){
+
+			document.getElementById('addressError').innerHTML = "Please enter your address"; 
+			return false;
+		}
+		
+			
+			return true;
+		}
 	
-	if (pos1 >= 0 && fullName.length > 2 && !parseInt(fullName)) {
 
-   
-    return true;
+	function validateGender(){
 
-}
-else
-{
-    alert(fullName +" please enter a full Name")
-    document.getElementById('$errors').innerHTML = fullName + " please enter a full Name!";  
-    return false;
-}
+		formGender = document.getElementById('gender').value;
 
-function validateEmail(){
-	mailAddress = document.getElementById('email').value;
-	pos1 = mailAddress.indexOf("@");
-	pos2 = mailAddress.indexOf(".");
+		if(formGender==''){
 
-	if (pos1 >= 0 && pos2 >= 0) {
-   
-    return true;
-}
-else
-{
-    alert(mailAddress +" is not a valid address!")
-    // document.getElementById('emailError').innerHTML = mailAddress + " please enter a valid email address!";  
-    return false;
-}
-}
+			document.getElementById('genderError').innerHTML = "Please select your gender";
+			return false;
+		}
+		
+			
+			return true;
+		}
+	
+	function validateAge(){
 
+		checkAge = document.getElementById('age').value;
 
-function validateAddress(){
+		if(checkAge==''){
 
-}
+			document.getElementById('ageError').innerHTML = "Please enter your age";
+			return false;
 
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
+		}
 
-function validateDate() {
-	var dob = document.getElementById('date');
+		if(isNaN('age') || 'age' < 1 || 'age' > 150){
+
+			document.getElementById('ageError').innerHTML= "Please enter a valid age";
+			return false;
+		}
+		else
+		{
+			document.getElementById('ageError').innerHTML ="";
+			return true;
+		}
 	}
 
-function myFunction() {
-    document.getElementById("form").reset();
-}
+	function validateDOB(){
 
-	document.getElementById('ageOutput').innerHTML  
-	document.getElementById("on_submit").style.visibility ="visible";
+		checkDOB = document.getElementById('dob').value;
+
+		if(checkDOB ==''){
+
+			document.getElementById('dobError').innerHTML="Please enter your Date of Birth";
+			return false;
+		}
+		else
+		{
+			document.getElementById('dobError').innerHTML= "";
+			return true;
+		}
+
+	}
+
+	function validateMovie(){
+
+		checkMovie = document.getElementById('movie').value;
+		if(checkMovie ==''){
+
+			document.getElementById('movieError').innerHTML = "Please select your favourite movie";
+			return false;
+		}
+				
+			return true;
+		}
+	}
+
+
+		
+	
+
+
+

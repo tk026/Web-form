@@ -2,8 +2,8 @@
 require 'includes/functions.php';
 
 
-$nameErr = $addressErr = $emailErr = $genderErr = $ageErr = $dobErr = $movieErr = "";
-$name = $address = $email = $gender = $age = $dob = $movie ="";
+$nameErr = $emailErr = $addressErr =  $genderErr = $ageErr = $dobErr = $movieErr = "";
+$name = $email = $address =  $gender = $age = $dob = $movie ="";
 
 	
 
@@ -13,8 +13,8 @@ $name = $address = $email = $gender = $age = $dob = $movie ="";
 	 {
 	 	
 		$name = $_POST['name'];
-		$address = $_POST['address'];
 		$email = $_POST['email'];
+		$address = $_POST['address'];
 		$age = $_POST['age'];
 		$dob = $_POST['dob'];
 		$movie = (isset($_POST['movie']) ? $_POST['movie'] : null);
@@ -22,8 +22,8 @@ $name = $address = $email = $gender = $age = $dob = $movie ="";
 
 
 	$nameErr = validateName('name');
-	$addressErr= validateAddress('address');
 	$emailErr= validateEmail('email');
+	$addressErr= validateAddress('address');
 	$genderErr= validateGender('gender');
 	$ageErr= validateAge('age');
 	$dobErr= validateDOB('dob');

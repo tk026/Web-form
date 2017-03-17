@@ -1,16 +1,16 @@
 	function validate(){
 
-		alert('here');
+	
 		var name = validateName();
 
 		var email  =  validateEmail();
 		var address = validateAddress();
 		var gender = validateGender();
 		var age = validateAge();
-		var dob = validateDOB();
+		var date = validateDOB();
 		var movie = validateMovie();
 
-		if (name && email && address && gender && age && dob && movie)
+		if (name && email && address && gender && age && date && movie)
 		{
 			// If all inputs are correct then this code will run
 			return true;
@@ -76,16 +76,17 @@
 
 	function validateGender(){
 
-		formGender = document.getElementById('gender').value;
+		female = document.getElementById('female').checked;
+		male = document.getElementById('male').checked;
 
-		if(formGender==''){
+		if(female && male){
 
-			document.getElementById('genderError').innerHTML = "Please select your gender";
-			return false;
-		}
-		
-			
+			document.getElementById('genderError').innerHTML = "";
 			return true;
+		}
+		document.getElementById('genderError').innerHTML = "Please enter your gender";
+	
+		return false;
 		}
 	
 	function validateAge(){
@@ -99,7 +100,7 @@
 
 		}
 
-		if(isNaN('age') || 'age' < 1 || 'age' > 150){
+		if(isNaN(checkAge) || checkAge < 1 || checkAge > 150){
 
 			document.getElementById('ageError').innerHTML= "Please enter a valid age";
 			return false;
@@ -113,33 +114,43 @@
 
 	function validateDOB(){
 
-		checkDOB = document.getElementById('dob').value;
+		checkDOB = document.getElementById('date').value;
 
-		if(checkDOB ==''){
+		if(checkDOB){
 
-			document.getElementById('dobError').innerHTML="Please enter your Date of Birth";
-			return false;
+			document.getElementById('dobError').innerHTML="";
+			return true;
 		}
 		else
 		{
-			document.getElementById('dobError').innerHTML= "";
-			return true;
+			document.getElementById('dobError').innerHTML= "Please enter your dob";
+			return false;
 		}
 
 	}
 
+	[]
+
 	function validateMovie(){
 
-		checkMovie = document.getElementById('movie').value;
-		if(checkMovie ==''){
+		movie1 = document.getElementById('movie1').checked;
+		movie2 = document.getElementById('movie2').checked;
+		movie3 = document.getElementById('movie3').checked;
+		movie4 = document.getElementById('movie4').checked;
+
+		
+		if(!movie1 && !movie2 && !movie3 && !movie4 ){
 
 			document.getElementById('movieError').innerHTML = "Please select your favourite movie";
 			return false;
 		}
-				
+		else
+		{	
+			document.getElementById('movieError').innerHTML = "";
 			return true;
 		}
 	}
+	
 
 
 		

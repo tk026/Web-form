@@ -1,10 +1,11 @@
-<div id="form" class="form-container">
 
-    <form method="POST" action="index.php" onsubmit="return validate()">
-
-        Name
+<div id="form" >
+ 
+    <form method="POST" id="myForm" action="index.php" onsubmit="return validate()">
+    
+        <h2>Name</h2>
         <br>
-        <input type="text" id="name" name="name" placeholder="Your name" value="<?php echo htmlspecialchars($name);?>">
+        <input type="text" id="name" name="name" placeholder="Your name" maxlength="40" value="<?php echo htmlspecialchars($name);?>">
 
         <span class="error" id="nameError"></span>
 
@@ -12,18 +13,19 @@
         <br>
         <br>
 
-        Email
+       	<h2> Email</h2>
         <br>
-        <input type="text" id="email" name="email" max='100' placeholder="Your Email" value="<?php echo htmlspecialchars($email);?>">
+        <input type="text" id="email" name="email" maxlength='100' placeholder="Your Email" value="<?php echo htmlspecialchars($email);?>">
         <span class="error" id="emailError"></span>
 
         <span class="error"><?php echo $emailErr;?></span>
         <br>
         <br>
 
-        Address
+      	 <h2> Address</h2>
         <br>
-        <textarea name="address" id="address" rows="5" placeholder="Your address" value="<?= htmlspecialchars($address);?>"></textarea>
+        <textarea name="address" id="address" rows="5" placeholder="Your address" maxlength="200"><?php if(isset($_POST['address'])) { 
+         echo htmlentities ($_POST['address']); }?></textarea>
         
         <span class="error" id="addressError"></span>
 
@@ -34,20 +36,26 @@
         
         <br> 
         <fieldset>
-        Gender
+        <h2>Gender</h2>
         <br>
-	    <input type="radio" name="gender" id="female" value="female"><?php if (isset($_POST['$gender']) && $_POST[ '$gender']=='female' ) {echo " checked";} ?><strong>Female</strong>
+	    <input type="radio" name="gender" id="Female" <?php if (isset($_POST['gender']) && $_POST['gender'] == "Female") {
+				    echo "checked";
+				    } ?> value="Female">
+		<strong>Female</strong>
 	    <br>
 	    <br>
-	    <input type="radio" name="gender" id="male" value="male"><?php if (isset($_POST['$gender']) && $_POST[ '$gender']=='male' ) {echo " checked";} ?><strong>Male</strong>
-	    
+	    <input type="radio" name="gender" id="Male" <?php if (isset($_POST['gender']) && $_POST['gender'] == "Male") {
+				    echo "checked";
+				    } ?> value="Male">
+		<strong>Male</strong>
+	    <br>
 	    <span class="error" id="genderError"></span>
 
 	    <span class="error"><?php echo $genderErr;?></span>
 	    <br>
         </fieldset>
 
-        Age
+        <h2>Age</h2>
         <br>
         <input type="number" id="age" name="age"  placeholder="Your age" value="<?php echo htmlspecialchars($age);?>">
         
@@ -58,27 +66,33 @@
 
         <br> 
         <br>
-        Date of birth
+        <h2>Date of birth</h2>
         <br>
         <input type="date" id="date" name="date" placeholder="Your Date of birth" value="<?php echo htmlspecialchars($date);?>">
-        
+        <br>
         <span class="error" id="dateError"></span>
         <span class="error"><?php echo $dateErr;?></span>
         <br>
         <br>
         <fieldset>
-        Choose a Favourite movie
+        <h2>Your Family movie</h2>
         <br>
-        <input type="radio" id="movie1" name="movie" value="movie1"><?php if (isset($_POST['$movie']) && $_POST[ '$movie']=='movie1' ) {echo " checked";} ?><strong>Movie 1</strong>
-        <br>
-
-        <input type="radio" id="movie2" name="movie" value="movie2"><?php if (isset($_POST['$movie']) && $_POST[ '$movie']=='movie2' ) {echo " checked";} ?><strong>Movie 2</strong>
-        <br>
-
-        <input type="radio" id="movie3" name="movie" value="movie3"><?php if (isset($_POST['$movie']) && $_POST[ '$movie']=='movie3' ) {echo " checked";} ?><strong>Movie 3</strong>
+        <input type="radio" name="movie" id="Moana" <?php if (isset($_POST['movie']) && $_POST['movie'] == "Moana") {
+				    echo "checked";
+				    } ?> value="Moana">
+        <strong>Moana</strong>
         <br>
 
-        <input type="radio" id="movie4" name="movie" value="movie4"><?php if (isset($_POST['movie']) && $_POST[ '$movie']=='movie4' ) {echo " checked";} ?><strong>Movie 4 </strong>
+        <input type="radio" name="movie" id="Trolls"  <?php if (isset($_POST['movie']) && $_POST['movie']=="Trolls") {echo "checked";} ?> value="Trolls">
+        <strong>Trolls</strong>
+        <br>
+
+        <input type="radio"  name="movie" id="Frozen"<?php if (isset($_POST['movie']) && $_POST['movie']=="Frozen" ) {echo "checked";} ?> value="Frozen">
+        <strong>Frozen</strong>
+        <br>
+
+        <input type="radio"  name="movie" id="Boy" <?php if (isset($_POST['movie']) && $_POST['movie']=="Boy" ) {echo "checked";} ?> value="Boy">
+        <strong>Boy</strong>
         <br>
         <span class="error" id="movieError"></span>
 
@@ -86,15 +100,9 @@
         <br>
         </fieldset>
 
-        <input type="submit" name="submit" value="Submit">
-
+        <input type="submit" name="submit" value="Submit" onsubmit="">
+        <input type="reset" name="reset" onclick="ResetForm()" value="Reset">
     </form>
 </div>
-<div id="form-complete">
-    <?php echo "<h2>Welcome </h2>"; echo $name; echo "<br>"; echo "<h2> Your details are </h2>"; echo $address; echo "<br>"; echo $email; echo "<br>"; echo $gender; echo "<br>"; echo $age; echo "<br>"; echo $dob; echo "<br>"; echo $movie; ?>
-    <br>
-
-
-
-
 </div>
+

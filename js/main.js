@@ -32,6 +32,12 @@
 	    	return false;
 
 		}
+
+		else if (fullName.length > 40){
+			document.getElementById('nameError').innerHTML = "you name must be no more than 40 characters";
+			return false;
+		}
+
 		else
 		{ 
 			document.getElementById('nameError').innerHTML = ""; 
@@ -150,6 +156,13 @@
 			return true;
 		}
 	}
+
+	function ResetForm(){
+
+			document.getElementById('myForm').reset();	
+	}
+
+
 	
 
 

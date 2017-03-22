@@ -5,9 +5,6 @@ require 'includes/functions.php';
 $nameErr = $emailErr = $addressErr =  $genderErr = $ageErr = $dateErr = $movieErr = "";
 $name = $email = $address =  $gender = $age = $date = $movie ="";
 
-	
-
-	
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	 {
@@ -29,9 +26,14 @@ $name = $email = $address =  $gender = $age = $date = $movie ="";
 	$dateErr= validateDate($date);
 	$movieErr= validateMovie($movie);
 
-	
+	if (!$nameErr && !$emailErr && !$addressErr && !$genderErr && !$ageErr&& !$dateErr && !$movieErr) {
+   
+      
+    require 'partials/feedback.php';
+    die();
+}
 
-
+	 
 }
 
 require 'partials/header.php';

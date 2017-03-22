@@ -1,22 +1,43 @@
-header{
-	font-family:'Ewert', cursive;  
-	font-size:5em;
-	
+.container
+{
+    width:90%;
+}
+
+body
+{
+background-image: url("img/moana.jpeg");
+margin: 0;
+padding: 0;
+background-repeat: no-repeat;
+background-size: 100%;
+}
+
+h2
+{
+    font-family: 'Clicker Script', cursive;
+    font-family: 'Nova Oval', cursive;
+    font-size:22pt;
+    font-style: bold;
+    color:#000000;
+
 }
 .form-container{
 
-	background-color: #bdc3c7;
+	background-color: #9b59b6;
+    width:80%;
+
 }
 
+
 #form {
-	width: 500px;
+	
     border: 1px solid lightgray;
     display:;
     text-align: center;
-    background-color: #62929E;
+    background-color:#1abc9c;
    	position: relative;
   	z-index: 1;
-  	max-width: 500px;
+  	max-width: 800px;
   	margin: 0 auto 10px;
   	padding-top: 10px;
   	padding: 45px;
@@ -24,11 +45,12 @@ header{
 }
 
 #form-complete{
-	width: 500px;
+   
+    width: 90%;
     border: 1px solid lightgray;
     float:center;
     text-align: center;
-    background-color: #62929E;
+    background-color: #9b59b6;
    	position: relative;
   	z-index: 1;
   	max-width: 500px;
@@ -50,12 +72,12 @@ input[type=text], select {
 }
 
 input[type=radio]{
-
+ color: black;
 
 }
 
 .error{
-    color: red;
+    color: #f2f2f2;
 }
 textarea {
     width: 100%;
@@ -89,12 +111,12 @@ input[type=number]{
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #3498db;
 }
 
 input[type=reset] {
     width: 100%;
-    background-color: #393D3F;
+    background-color: 393D3F;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -102,8 +124,13 @@ input[type=reset] {
     border-radius: 4px;
     cursor: pointer;
 }
+
+input[type=reset]:hover {
+    background-color: #3498db; 
+}
+
 div {
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    background-image: 
+    /*padding: 20px;*/
 }
